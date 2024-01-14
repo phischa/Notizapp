@@ -96,6 +96,7 @@ body {
     border-radius: 8px;
     font-weight: bold;
     font-family: "Raleway", "sans-serif";
+    font-size: 16px;
 }
 
 #input-button:hover {
@@ -138,5 +139,17 @@ body {
 
     #input-container {
         width: 220px;
+    }
+
+    #input-title {
+        font-size: 14px;
+    }
+    
+    #input-note {
+       font-size: 14px;
+    }
+
+    #input-button {
+        font-size: 14px;
     }
 }
