@@ -1,0 +1,142 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0px;
+    padding: 0;
+    background-color: rgb(30, 30, 30);
+    font-family: "Raleway", "sans-serif";
+}
+
+.header {
+    height: 100px;
+    color: rgb(242, 242, 242);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-size: cover;
+    box-shadow: 1px 1px 4px rgba(216, 215, 215, 0.3);
+    margin-bottom: 40px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.header-title {
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white
+}
+
+.header-img {
+    height: 40px;
+    width: 40px;
+    margin-left: 40px;
+}
+
+#hamburger-menu {
+    display: flex;
+    height: 24px;
+    width: 24px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 64px;
+}
+
+#input-container {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 24px;
+    margin: 0 10vh;
+    background-color: rgb(39, 40, 35);
+    border-radius: 16px;
+}
+
+#input-title {
+    background-color: rgb(39, 40, 35);
+    border: none;
+    color: white;
+    padding: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    font-family: "Raleway", "sans-serif";
+    /* border: 1px solid rgb(39, 40, 35); */
+}
+
+#input-note {
+    background-color: rgb(39, 40, 35);
+    border: none;
+    color: white;
+    padding: 8px;
+    font-size: 18px;
+    height: 120px;
+    resize: none;
+    cursor: pointer;
+    margin-bottom: 8px;
+    font-family: "Raleway", "sans-serif";
+}
+
+#input-button {
+    color: rgb(30, 30, 30);
+    background-color: rgb(255, 171, 21);
+    cursor: pointer;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: "Raleway", "sans-serif";
+}
+
+#input-button:hover {
+    color: rgb(30, 30, 30);
+    background-color: rgb(255, 220, 64);
+    cursor: pointer;
+    border: none;
+    padding: 8px;
+}
+
+*:focus {
+    outline: none;
+}
+
+@media(max-width: 50000px) {
+    #input-container {
+        width: 500px;
+    }
+}
+
+@media(max-width: 430px) {
+
+    .header-left {
+        gap: 24px;
+    }
+
+    .header-title {
+        font-size: 20px;
+    }
+
+    .header-img {
+        height: 32px;
+        width: 32px;
+    }
+
+    #hamburger-menu {
+        height: 16px;
+        width: 16px;
+    }
+
+    #input-container {
+        width: 220px;
+    }
+}
