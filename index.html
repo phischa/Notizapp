@@ -14,28 +14,43 @@
 
 <body onload="render()">
 
-    <header class="header">
-        <nav class="header-left">
-            <img class="header-img" src="./img/notes (1).png" alt="app icon">
-            <a class="header-title" href="#">Notes</a>
-        </nav>
-        <nav>
-            <img id="hamburger-menu" src="./img/burger.png" alt="burger menu icon">
-        </nav>
-    </header>
-    <div id="content">
-        <div class="input">
-            <div id="input-container">
-                <input id="input-title" placeholder="title" type="text" required>
-                <textarea id="input-note" placeholder="note" name="note" id="" cols="30" rows="10"></textarea>
-                <button id="input-button" onclick="">save</button>
+    <div class="main">
+
+        <header class="header">
+            <nav class="header-left">
+                <img class="header-img" src="./img/notes (1).png" alt="app icon">
+                <a class="header-title" href="#">Notes</a>
+            </nav>
+            <nav>
+                <img onclick="showMenu()" id="hamburger-menu" src="./img/burger.png" alt="burger menu icon">
+
+                <div id="menu" class="overlay-menu1">
+                    <a class="overlay-menu-link" href="#">
+                        <img class="trash-img" src="./img/trash.png" alt="trash-icon">
+
+                    </a>
+
+                    <button class="hide-button" onclick="hideMenu()">close</button>
+                </div>
+            </nav>
+        </header>
+        <div id="content">
+            <div class="input">
+                <div id="input-container">
+                    <input id="input-title" placeholder="title" type="text" required>
+                    <textarea id="input-note" placeholder="note" name="note" id="" cols="30" rows="10"></textarea>
+                    <button id="input-button" onclick="addNote()">save</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="notes">
+        <div id="notes">
 
+        </div>
+
+        <!-- <a target="_blank" href="https://icons8.com/icon/85081/trash">Trash</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
     </div>
 
 </body>
 
 </html>
+
