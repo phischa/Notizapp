@@ -10,6 +10,10 @@ body {
     font-family: "Raleway", "sans-serif";
 }
 
+*:focus {
+    outline: none;
+}
+
 .main {
     overflow-x: hidden;
 }
@@ -55,7 +59,7 @@ body {
 }
 
 .overlay-menu1 {
-    background-color: rgb(50, 50, 48 );
+    background-color: rgb(50, 50, 48);
     position: absolute;
     right: 0;
     top: 0;
@@ -163,8 +167,32 @@ body {
     background-color: rgb(251, 205, 79);
 }
 
-*:focus {
-    outline: none;
+.delete-button {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 220, 64);
+    cursor: pointer;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: "Raleway", "sans-serif";
+    font-size: 14px;
+}
+
+.added-note {
+    background-color: rgb(39, 40, 35);
+    color: white;
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+    padding: 24px 24px;
+    margin: 24px;
+    word-wrap: break-word;
+    border-radius: 16px;
+}
+
+.added-note:hover {
+    box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
 }
 
 @media(max-width: 50000px) {
@@ -188,11 +216,6 @@ body {
         width: 32px;
     }
 
-    #hamburger-menu {
-        height: 16px;
-        width: 16px;
-    }
-
     #input-container {
         width: 220px;
     }
@@ -200,9 +223,9 @@ body {
     #input-title {
         font-size: 14px;
     }
-    
+
     #input-note {
-       font-size: 14px;
+        font-size: 14px;
     }
 
     #input-button {
