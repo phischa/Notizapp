@@ -15,22 +15,19 @@
 <body onload="render()">
 
     <div class="main">
-
         <header class="header">
             <nav class="header-left">
                 <img class="header-img" src="./img/notes (1).png" alt="app icon">
                 <a class="header-title" href="#">Notes</a>
             </nav>
             <nav>
-                <img onclick="showMenu()" id="hamburger-menu" src="./img/trash.png" alt="burger menu icon">
+                <img onclick="showTrash()" id="hamburger-menu" src="./img/trash.png" alt="burger menu icon">
 
-                <div id="menu" class="overlay-menu1">
-                    <a class="overlay-menu-link" href="#">
-                        <img class="trash-img" src="./img/trash.png" alt="trash-icon">
+                <div id="trash" class="overlay-menu1">
 
-                    </a>
-
-                    <button class="hide-button" onclick="hideMenu()">close</button>
+                    <div>
+                        
+                    </div>
                 </div>
             </nav>
         </header>
@@ -43,9 +40,7 @@
                 </div>
             </div>
         </div>
-        <div id="content">
-
-        </div>
+        <div id="content"></div>
 
         <!-- <a target="_blank" href="https://icons8.com/icon/85081/trash">Trash</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
     </div>

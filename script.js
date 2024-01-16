@@ -1,19 +1,22 @@
 let titles = [];
 let notes = [];
-
 let deletedTitles = [];
 let deletedNotes = [];
+
+load();
 
 function render() {
     let content = document.getElementById('content');
     content.innerHTML = '';
 
     for (let i = 0; i < titles.length; i++) {
+        const title = titles[i];
+        const note = notes[i];
         content.innerHTML += /* html */ `
             <div class="added-note">
-                <h3>${titles[i]} </h3> <br>
-                <div>${notes[i]}</div> <br>
-                <button class="delete-button" onclick="deleteNote(${i})">delete</button>
+                <h3>${title} </h3> <br>
+                <div>${note}</div> <br>
+                <button class="delete-button" onclick="noteToTrash(${i})">delete</button>
             </div>
         `;
     }
@@ -26,15 +29,22 @@ function addNote() {
     if (title.value === '' && note.value === '') {
         alert('Beide Eingabefelder müssen ausgefüllt werden.')
     } else {
-    titles.push(title.value);
-    notes.push(note.value);
+        titles.push(title.value);
+        notes.push(note.value);
+        title.value = '';
+        note.value = '';
+        render();
+        save();
     }
-    render();
-    save();
 }
 
-function deleteNote() {
-
+function noteToTrash(i) {
+    deletedTitles.push(titles[i]);
+    deletedNotes.push(notes[i]);
+    titles.splice(i, 1);
+    notes.splice(i, 1);
+    render();
+    save();
 }
 
 function save() {
@@ -54,10 +64,31 @@ function load() {
     }
 }
 
-function showMenu() {
-    document.getElementById('menu').classList.add('show-overlay-menu');
+function showTrash() {
+    document.getElementById('trash').classList.add('show-overlay-menu');
+    trash.innerHTML = '';
+    trash.innerHTML += `
+        <button class="hide-button" onclick="hideTrash()">close</button>
+    `;
+    /* CLOSE BUTTON MUSS VOM HTML HIER HER VERLEGT WERDEN!!! */
+
+    for (let i = 0; i < deletedTitles.length; i++) {
+        const deletedTitle = deletedTitles[i];
+        const deletedNote = deletedNotes[i];
+        trash.innerHTML += /* html */ `
+            <div>
+                <div class="added-note">
+                    <h3>${deletedTitle} </h3> <br>
+                    <span>${deletedNote}</span> <br>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        `;
+    }
 }
 
-function hideMenu() {
-    document.getElementById('menu').classList.remove('show-overlay-menu');
+function hideTrash() {
+    document.getElementById('trash').classList.remove('show-overlay-menu');
 }
