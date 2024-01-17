@@ -68,6 +68,7 @@ function recoverNote(i) {
     notes.push(deletedNotes[i]);
     deletedTitles.splice(i, 1);
     deletedNotes.splice(i, 1);
+    showTrash();
     render();
     save();
 }
@@ -75,7 +76,7 @@ function recoverNote(i) {
 function flushNote(i) {
     deletedTitles.splice(i, 1);
     deletedNotes.splice(i, 1);
-    /* renderTrash(); */
+    showTrash();
     render();
     save();
 }
@@ -87,7 +88,7 @@ function flushNote(i) {
 function showTrash() {
     document.getElementById('trash').classList.add('show-overlay-menu');
     trash.innerHTML = '';
-    trash.innerHTML += `
+    trash.innerHTML += /* html */ `
         <button class="hide-button" onclick="hideTrash()">close</button>
     `;
 
