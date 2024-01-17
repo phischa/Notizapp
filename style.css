@@ -216,7 +216,6 @@ body {
 .added-note-trash {
     background-color: rgb(39, 40, 35);
     color: white;
-    cursor: pointer;
     display: inline-block;
     padding: 24px 24px;
     margin-left: 24px;
@@ -226,11 +225,19 @@ body {
     width: 250px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #trash-icon {
     width: 24px;
     height: 24px;
+    cursor: pointer;
+}
+
+#restore-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 }
 
 @media(max-width: 50000px) {

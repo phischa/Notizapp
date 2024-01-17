@@ -24,8 +24,12 @@ function render() {
 function save() {
     let titleAsText = JSON.stringify(titles);
     let noteAsText = JSON.stringify(notes);
+    let delTitelsAsText = JSON.stringify(deletedTitles);
+    let delNotesAsText = JSON.stringify(deletedNotes);
     localStorage.setItem('titles', titleAsText);
     localStorage.setItem('notes', noteAsText);
+    localStorage.setItem('deletedTitles', delTitelsAsText);
+    localStorage.setItem('deletedNotes', delNotesAsText);
 }
 
 
@@ -35,6 +39,12 @@ function load() {
     if (titleAsText && noteAsText) {
         titles = JSON.parse(titleAsText);
         notes = JSON.parse(noteAsText);
+    }
+    let delTitelsAsText = localStorage.getItem('deletedTitles');
+    let delNotesAsText = localStorage.getItem('deletedNotes');
+    if (delTitelsAsText && delNotesAsText) {
+        deletedTitles = JSON.parse(delTitelsAsText);
+        deletedNotes = JSON.parse(delNotesAsText);
     }
 }
 
@@ -80,10 +90,6 @@ function flushNote(i) {
     render();
     save();
 }
-
-/* function renderTrash() {
-
-} */
 
 function showTrash() {
     document.getElementById('trash').classList.add('show-overlay-menu');
