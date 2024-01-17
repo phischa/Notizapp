@@ -14,7 +14,7 @@ function render() {
         const note = notes[i];
         content.innerHTML += /* html */ `
             <div class="added-note">
-                <h3>${title} </h3> <br>
+                <b>${title} </b> <br>
                 <div>${note}</div> <br>
                 <button class="delete-button" onclick="noteToTrash(${i})">delete</button>
             </div>
@@ -77,9 +77,15 @@ function showTrash() {
         const deletedNote = deletedNotes[i];
         trash.innerHTML += /* html */ `
             <div>
-                <div class="added-note">
-                    <h3>${deletedTitle} </h3> <br>
-                    <span>${deletedNote}</span> <br>
+                <div class="added-note-trash">
+                    <div>
+                        <b>${deletedTitle} </b> <br>
+                        <span>${deletedNote}</span> <br>
+                    </div>
+                    <div>
+                        <img id="trash-icon" src="./img/trash.png" alt="trash icon">
+                        <img id="revover-icon src="" alt=""> <!-- RECOVER SYMBOL!!!!!! -->
+                    </div>
                 </div>
                 <div>
                     

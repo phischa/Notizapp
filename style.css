@@ -63,7 +63,7 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 16px;
+    padding: 40px 16px;
     z-index: 5;
     display: flex;
     flex-direction: column-reverse;
@@ -211,6 +211,26 @@ body {
 
 .delete-button:hover {
     background-color: rgb(251, 205, 79);
+}
+
+.added-note-trash {
+    background-color: rgb(39, 40, 35);
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    padding: 24px 24px;
+    margin-left: 24px;
+    margin-bottom: 24px;
+    word-wrap: break-word;
+    border-radius: 16px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#trash-icon {
+    width: 24px;
+    height: 24px;
 }
 
 @media(max-width: 50000px) {
