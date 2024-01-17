@@ -17,8 +17,24 @@ function render() {
                 <b>${title} </b> <br>
                 <div>${note}</div> <br>
                 <button class="delete-button" onclick="noteToTrash(${i})">delete</button>
-            </div>
-        `;
+            </div>`;
+    }
+}
+
+function save() {
+    let titleAsText = JSON.stringify(titles);
+    let noteAsText = JSON.stringify(notes);
+    localStorage.setItem('titles', titleAsText);
+    localStorage.setItem('notes', noteAsText);
+}
+
+
+function load() {
+    let titleAsText = localStorage.getItem('titles');
+    let noteAsText = localStorage.getItem('notes');
+    if (titleAsText && noteAsText) {
+        titles = JSON.parse(titleAsText);
+        notes = JSON.parse(noteAsText);
     }
 }
 
@@ -47,22 +63,26 @@ function noteToTrash(i) {
     save();
 }
 
-function save() {
-    let titleAsText = JSON.stringify(titles);
-    let noteAsText = JSON.stringify(notes);
-    localStorage.setItem('titles', titleAsText);
-    localStorage.setItem('notes', noteAsText);
+function recoverNote(i) {
+    titles.push(deletedTitles[i]);
+    notes.push(deletedNotes[i]);
+    deletedTitles.splice(i, 1);
+    deletedNotes.splice(i, 1);
+    render();
+    save();
 }
 
-
-function load() {
-    let titleAsText = localStorage.getItem('titles');
-    let noteAsText = localStorage.getItem('notes');
-    if (titleAsText && noteAsText) {
-        titles = JSON.parse(titleAsText);
-        notes = JSON.parse(noteAsText);
-    }
+function flushNote(i) {
+    deletedTitles.splice(i, 1);
+    deletedNotes.splice(i, 1);
+    /* renderTrash(); */
+    render();
+    save();
 }
+
+/* function renderTrash() {
+
+} */
 
 function showTrash() {
     document.getElementById('trash').classList.add('show-overlay-menu');
@@ -70,7 +90,6 @@ function showTrash() {
     trash.innerHTML += `
         <button class="hide-button" onclick="hideTrash()">close</button>
     `;
-    /* CLOSE BUTTON MUSS VOM HTML HIER HER VERLEGT WERDEN!!! */
 
     for (let i = 0; i < deletedTitles.length; i++) {
         const deletedTitle = deletedTitles[i];
@@ -83,15 +102,11 @@ function showTrash() {
                         <span>${deletedNote}</span> <br>
                     </div>
                     <div>
-                        <img id="trash-icon" src="./img/trash.png" alt="trash icon">
-                        <img id="revover-icon src="" alt=""> <!-- RECOVER SYMBOL!!!!!! -->
+                        <img id="trash-icon" onclick="flushNote(${i})" src="./img/trash.png" alt="trash icon">
+                        <img id="restore-icon" onclick="recoverNote(${i})" src="./img/restore.png" alt="restore icon">
                     </div>
                 </div>
-                <div>
-                    
-                </div>
-            </div>
-        `;
+            </div> `;
     }
 }
 
