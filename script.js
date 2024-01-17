@@ -69,7 +69,6 @@ function noteToTrash(i) {
     deletedNotes.push(notes[i]);
     titles.splice(i, 1);
     notes.splice(i, 1);
-    showTrash();
     render();
     save();
 }
