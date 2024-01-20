@@ -52,7 +52,7 @@ function addNote() {
     let title = document.getElementById('input-title');
     let note = document.getElementById('input-note');
 
-    if (title.value === '' && note.value === '') {
+    if (title.value == '' || note.value == '') {
         alert('Beide Eingabefelder müssen ausgefüllt werden.')
     } else {
         titles.push(title.value);
@@ -101,20 +101,25 @@ function showTrash() {
     for (let i = 0; i < deletedTitles.length; i++) {
         const deletedTitle = deletedTitles[i];
         const deletedNote = deletedNotes[i];
-        trash.innerHTML += /* html */ `
-            <div>
-                <div class="added-note-trash">
-                    <div>
-                        <b>${deletedTitle} </b> <br>
-                        <span>${deletedNote}</span> <br>
-                    </div>
-                    <div>
-                        <img id="trash-icon" onclick="flushNote(${i})" src="./img/trash.png" alt="trash icon">
-                        <img id="restore-icon" onclick="recoverNote(${i})" src="./img/restore.png" alt="restore icon">
-                    </div>
-                </div>
-            </div> `;
+        trash.innerHTML += showTrashHtml(deletedTitle, deletedNote, i);
     }
+}
+
+function showTrashHtml(deletedTitle, deletedNote, i) {
+    return `
+         <div>
+             <div class="added-note-trash">
+                <div>
+                    <b>${deletedTitle} </b> <br>
+                    <span>${deletedNote}</span> <br>
+                </div>
+                <div>
+                    <img id="trash-icon" onclick="flushNote(${i})" src="./img/trash.png" alt="trash icon">
+                    <img id="restore-icon" onclick="recoverNote(${i})" src="./img/restore.png" alt="restore icon">
+                </div>
+            </div>
+        </div> 
+    `;
 }
 
 function hideTrash() {
